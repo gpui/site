@@ -2,11 +2,13 @@ import { agrandir_grand } from "@/font";
 import clsx from "clsx";
 import Link from "next/link";
 import { StickerImage, sticker } from "./sticker";
+import { home } from "../content/home";
+import ReactMarkdown from "react-markdown";
 
 export default function Home() {
   return (
     <main className="min-h-screen grid grid-cols-12 gap-4">
-      <div className="col-span-8 flex flex-col gap-8">
+      <div className="col-span-8 flex flex-col gap-8 pb-96">
         <h1
           className={clsx(
             agrandir_grand.className,
@@ -51,6 +53,28 @@ export default function Home() {
             <span>&rarr;</span>
           </Link>
         </p>
+        <ReactMarkdown
+          components={{
+            pre(props) {
+              const { node, ...rest } = props;
+              return (
+                <pre
+                  className={
+                    "p-8 -mx-8 rounded-2xl backdrop-blur-xl bg-white/10 shadow-inner shadow-black/5 border border-white/10"
+                  }
+                  {...rest}
+                />
+              );
+            },
+            // Rewrite `em`s (`*like so*`) to `i` with a red foreground color.
+            em(props) {
+              const { node, ...rest } = props;
+              return <i style={{ color: "red" }} {...rest} />;
+            },
+          }}
+        >
+          {home}
+        </ReactMarkdown>
       </div>
       <div className="col-span-3 flex flex-col gap-16">
         <div className="w-full h-96 relative">
