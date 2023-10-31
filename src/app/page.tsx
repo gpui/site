@@ -4,11 +4,13 @@ import Link from "next/link";
 import { StickerImage, sticker } from "./sticker";
 import { home } from "../content/home";
 import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function Home() {
   return (
     <main className="min-h-screen grid grid-cols-12 gap-4">
-      <div className="col-span-8 flex flex-col gap-8 pb-96">
+      <div className="col-span-8 flex flex-col gap-16 pb-96">
         <h1
           className={clsx(
             agrandir_grand.className,
@@ -53,28 +55,41 @@ export default function Home() {
             <span>&rarr;</span>
           </Link>
         </p>
-        <ReactMarkdown
-          components={{
-            pre(props) {
-              const { node, ...rest } = props;
-              return (
-                <pre
-                  className={
-                    "p-8 -mx-8 rounded-2xl backdrop-blur-xl bg-white/10 shadow-inner shadow-black/5 border border-white/10"
-                  }
-                  {...rest}
-                />
-              );
-            },
-            // Rewrite `em`s (`*like so*`) to `i` with a red foreground color.
-            em(props) {
-              const { node, ...rest } = props;
-              return <i style={{ color: "red" }} {...rest} />;
-            },
-          }}
+        <div
+          className={clsx(
+            "prose prose-invert md:prose-lg lg:prose-xl",
+            "max-w-4xl mt-16",
+            "prose-p:text-stone-100",
+            "prose-em:text-stone-100",
+            "prose-li:text-stone-100",
+            "prose-pre:p-8 prose-pre:-mx-8 prose-pre:rounded-2xl prose-pre:backdrop-blur-xl prose-pre:bg-white/10 prose-pre:shadow-inner prose-pre:shadow-black/5 prose-pre:border prose-pre:border-white/10",
+            "prose-a:underline prose-a:underline-offset-4 prose-a:decoration-from-font"
+          )}
         >
-          {home}
-        </ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              code(props) {
+                const { children, className, node, ...rest } = props;
+                const match = /language-(\w+)/.exec(className || "");
+                return match ? (
+                  <SyntaxHighlighter
+                    language="rust"
+                    style={dark}
+                    useInlineStyles={false}
+                  >
+                    {String(children).replace(/\n$/, "")}
+                  </SyntaxHighlighter>
+                ) : (
+                  <code {...rest} className={className}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          >
+            {home}
+          </ReactMarkdown>
+        </div>
       </div>
       <div className="col-span-3 flex flex-col gap-16">
         <div className="w-full h-96 relative">

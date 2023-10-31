@@ -89,3 +89,7 @@
     overscroll-behavior: none;
   }
 }
+
+pre.prismjs > code {
+  text-shadow: none !important;
+}
