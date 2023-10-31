@@ -39,9 +39,13 @@ export default function Home() {
         <p>
           <Link
             href={"/docs"}
-            className="inline-flex text-4xl grow-0 px-4 py-2 -mx-4 font-thin gap-3"
+            className={clsx(
+              "inline-flex text-4xl grow-0 px-8 py-6 -mx-8 font-thin gap-3 rounded-full",
+              "bg-transparent",
+              "hover:bg-lime-500/30 hover:backdrop-hue-rotate-90/50"
+            )}
           >
-            <span className="underline italic underline-offset-8 decoration-from-font decoration-wavy ">
+            <span className="underline italic underline-offset-8 decoration-from-font decoration-wavy leading-none">
               Read the Docs
             </span>
             <span>&rarr;</span>
@@ -73,7 +77,7 @@ export default function Home() {
               "text-stone-200 max-w-2xl leading-tight"
             )}
           >
-            GPUI powers:
+            Powering:
           </h2>
         </div>{" "}
         <div className="">
