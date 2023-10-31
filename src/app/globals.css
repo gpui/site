@@ -90,6 +90,6 @@
   }
 }
 
-pre.prismjs > code {
+.prismjs > code {
   text-shadow: none !important;
 }

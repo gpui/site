@@ -57,12 +57,12 @@ export default function Home() {
         </p>
         <div
           className={clsx(
-            "prose prose-invert md:prose-lg lg:prose-xl",
+            "prose prose-invert md:prose-lg",
             "max-w-4xl mt-16",
             "prose-p:text-stone-100",
             "prose-em:text-stone-100",
             "prose-li:text-stone-100",
-            "prose-pre:p-8 prose-pre:-mx-8 prose-pre:rounded-2xl prose-pre:backdrop-blur-xl prose-pre:bg-white/10 prose-pre:shadow-inner prose-pre:shadow-black/5 prose-pre:border prose-pre:border-white/10",
+            "prose-pre:p-4 prose-pre:-mx-4 prose-pre:rounded-2xl prose-pre:backdrop-blur-xl prose-pre:bg-white/10 prose-pre:shadow-inner prose-pre:shadow-black/5 prose-pre:border prose-pre:border-white/10",
             "prose-a:underline prose-a:underline-offset-4 prose-a:decoration-from-font"
           )}
         >
@@ -76,6 +76,7 @@ export default function Home() {
                     language="rust"
                     style={dark}
                     useInlineStyles={false}
+                    PreTag="div"
                   >
                     {String(children).replace(/\n$/, "")}
                   </SyntaxHighlighter>
