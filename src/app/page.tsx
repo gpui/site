@@ -3,9 +3,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { StickerImage, sticker } from "./sticker";
 import { home } from "../content/home";
-import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Markdown } from "./md";
 
 export default function Home() {
   return (
@@ -66,30 +64,7 @@ export default function Home() {
             "prose-a:underline prose-a:underline-offset-4 prose-a:decoration-from-font"
           )}
         >
-          <ReactMarkdown
-            components={{
-              code(props) {
-                const { children, className, node, ...rest } = props;
-                const match = /language-(\w+)/.exec(className || "");
-                return match ? (
-                  <SyntaxHighlighter
-                    language="rust"
-                    style={dark}
-                    useInlineStyles={false}
-                    PreTag="div"
-                  >
-                    {String(children).replace(/\n$/, "")}
-                  </SyntaxHighlighter>
-                ) : (
-                  <code {...rest} className={className}>
-                    {children}
-                  </code>
-                );
-              },
-            }}
-          >
-            {home}
-          </ReactMarkdown>
+          <Markdown>{home}</Markdown>
         </div>
       </div>
       <div className="col-span-3 flex flex-col gap-16">
