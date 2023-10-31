@@ -17,6 +17,7 @@ export const NavItem = ({ href, title }: NavItemProps) => {
       href={href}
       className={clsx(
         "font-medium text-lg text-stone-200",
+        "hover:underline underline-offset-8 decoration-wavy decoration-1",
         currentPath === href ? "opacity-100" : "opacity-60 hover:opacity-80"
       )}
     >
