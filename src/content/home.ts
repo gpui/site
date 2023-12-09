@@ -1,20 +1,24 @@
-export const home = `## Why GPUI?
-
-- Reason #1: **It's fast.**
-- Reason #2: **It's easy to use.**
-- Reason #3: **It's open source.**
-
-Some code or something:
+export const home = `## Hello, World 🌎
 
 ~~~rust
-fn initialize(&self, cx: &mut WindowContext) -> AnyBox {
-    cx.with_element_id(self.entity_id(), |_global_id, cx| {
-        self.update(cx, |state, cx| {
-            let mut any_element = Box::new(AnyElement::new(state.render(cx)));
-            any_element.initialize(state, cx);
-            any_element
-        })
-    })
+use gpui::{}
+
+struct HelloWorld {
+    text: String,
+}
+
+impl Render for HelloWorld {
+    type Element = Div;
+
+    fn render(&mut self) -> Self::Element {
+        div()
+        .flex()
+        .size_full()
+        .justify_center()
+        .items_center()
+        .text_color(hsla(1.0, 1.0, 1.0, 1.0))
+        .child(self.text)
+    }
 }
 ~~~
 

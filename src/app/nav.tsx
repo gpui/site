@@ -1,5 +1,6 @@
 "use client";
 
+import { DOCS_URL } from "@/content/const";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,7 +17,7 @@ export const NavItem = ({ href, title }: NavItemProps) => {
     <Link
       href={href}
       className={clsx(
-        "font-medium text-lg text-stone-200",
+        "text-stone-200",
         currentPath === href ? "opacity-100" : "opacity-60 hover:opacity-80"
       )}
     >
@@ -27,9 +28,9 @@ export const NavItem = ({ href, title }: NavItemProps) => {
 
 export const Nav = () => {
   return (
-    <nav className="flex gap-8 items-center font-medium text-lg">
+    <nav className="flex gap-8 items-center">
       <NavItem href="/" title="gpui" />
-      <NavItem href="/docs" title="docs" />
+      <NavItem href={DOCS_URL} title="docs" />
       <NavItem href="https://github.com/gpui" title="github" />
     </nav>
   );

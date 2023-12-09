@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { GeistSans, GeistMono } from "geist/font";
 import "./globals.css";
 import clsx from "clsx";
-import Link from "next/link";
 import { Nav } from "./nav";
 import topWrap from "../../public/top-wrap.png";
 import bottomWrap from "../../public/bottom-wrap.png";
@@ -19,31 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-yellow-800 via-orange-400 to-indigo-600"
-    >
-      <body className={clsx(GeistMono.className, "text-stone-200 relative")}>
-        <div className="w-screen absolute top-0 left-0 mix-blend-screen fade-out select-none">
-          <Image
-            src={topWrap.src}
-            height={topWrap.height}
-            width={topWrap.width}
-            className="w-screen"
-            alt=""
-          />
+    <html lang="en">
+      <body className={clsx(GeistMono.className, "relative text-stone-100 bg-stone-950 max-w-7xl mx-auto")}>
+        <div className="grain fixed h-screen w-screen" />
+        <div className="relative z-20 flex min-h-screen flex-col gap-8 p-24">
+        <div className="flex h-12 w-full items-center">
+          🚧 This site is a work in progress! 🚧
         </div>
-        <div className="w-screen absolute bottom-0 left-0 mix-blend-screen fade-in select-none">
-          <Image
-            src={bottomWrap.src}
-            height={bottomWrap.height}
-            width={bottomWrap.width}
-            className="w-screen"
-            alt=""
-          />
-        </div>
-        <div className="w-screen h-screen fixed grain" />
-        <div className="relative z-20 flex min-h-screen flex-col p-24 gap-8">
           <Nav />
           {children}
         </div>
