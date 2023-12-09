@@ -22,9 +22,9 @@ export default function RootLayout({
       <body className={clsx(GeistMono.className, "relative text-stone-100 bg-stone-950 max-w-7xl mx-auto")}>
         <div className="grain fixed h-screen w-screen" />
         <div className="relative z-20 flex min-h-screen flex-col gap-8 p-24">
-        <div className="flex h-12 w-full items-center">
-          🚧 This site is a work in progress! 🚧
-        </div>
+          <div className="flex h-12 w-full items-center">
+            🚧 This site is a work in progress! 🚧
+          </div>
           <Nav />
           {children}
         </div>

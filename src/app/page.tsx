@@ -1,7 +1,5 @@
-import { agrandir_grand } from "@/font";
 import clsx from "clsx";
 import Link from "next/link";
-import { StickerImage, sticker } from "./sticker";
 import { home } from "../content/home";
 import { Markdown } from "./md";
 import { DOCS_URL } from "@/content/const";
