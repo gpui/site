@@ -29,7 +29,7 @@ export default async function Home() {
           </div>
         </div>
         <Suspense fallback={<div>Loading...</div>}>
-          {/* @ts-expect-error Server Component */}
+          {/* @ts-ignore Server Component */}
           <Sidebar />
         </Suspense>
       </main>
