@@ -29,6 +29,7 @@ export default async function Home() {
           </div>
         </div>
         <Suspense fallback={<div>Loading...</div>}>
+          {/* @ts-expect-error Server Component */}
           <Sidebar />
         </Suspense>
       </main>
