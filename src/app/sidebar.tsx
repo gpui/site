@@ -8,16 +8,6 @@ export const Sidebar = async () => {
 
   return (
     <div className="col-span-3 flex flex-col gap-16">
-      <div className="">
-        <h2
-          className={clsx(
-            "-mx-1 grow-0 gap-3 italic",
-            "max-w-2xl leading-tight text-stone-200",
-          )}
-        >
-          Powering:
-        </h2>
-      </div>
       <div className="flex flex-col gap-4">
         <h2
           className={clsx(
@@ -25,7 +15,7 @@ export const Sidebar = async () => {
             "max-w-2xl leading-tight text-stone-200",
           )}
         >
-          Made possible by:
+          GPUI is made possible by:
         </h2>
         <div className="flex flex-wrap gap-3">
           {contributors.map((contributor) => (
