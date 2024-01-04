@@ -18,7 +18,7 @@ export const NavItem = ({ href, title }: NavItemProps) => {
       href={href}
       className={clsx(
         "text-stone-200",
-        currentPath === href ? "opacity-100" : "opacity-60 hover:opacity-80"
+        currentPath === href ? "opacity-100" : "opacity-60 hover:opacity-80",
       )}
     >
       {title}
@@ -28,10 +28,15 @@ export const NavItem = ({ href, title }: NavItemProps) => {
 
 export const Nav = () => {
   return (
-    <nav className="flex gap-8 items-center">
-      <NavItem href="/" title="gpui" />
-      <NavItem href={DOCS_URL} title="docs" />
-      <NavItem href="https://github.com/gpui" title="github" />
+    <nav className="flex justify-between px-4 py-2">
+      <div className="flex items-center gap-8">
+        <NavItem href="/" title="gpui" />
+        <NavItem href={DOCS_URL} title="docs" />
+        <NavItem href="https://github.com/gpui" title="github" />
+      </div>
+      <div className="flex items-center gap-12">
+        <NavItem href="https://zed.dev" title="zed" />
+      </div>
     </nav>
   );
 };
