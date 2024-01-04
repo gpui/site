@@ -36,8 +36,8 @@ export const Sidebar = async () => {
         <Markdown>
           {`
 ## Contributing to GPUI
-GPUI is an open source project, while we welcome
-contributions, it is currently tied to [Zed](/) so contributions will
+GPUI is an open source project. We welcome
+contributions, but for the near future GPUI is tied to [Zed](https://zed.dev/), so contributions will
 need to be made there and kept in sync with it.
         `}
         </Markdown>
