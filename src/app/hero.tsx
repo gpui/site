@@ -17,19 +17,17 @@ export const Hero = () => {
         <Link href="https://github.com/atom/atom">Atom</Link>
         <p className="opacity-80">.</p>
       </h2>
-      <p>
-        <a href={DOCS_URL}>
-          <div
-            className={clsx(
-              "text-stone-200",
-              "italic leading-none decoration-from-font underline-offset-8",
-              "opacity-60 hover:opacity-80",
-            )}
-          >
-            Get Started <span>&rarr;</span>
-          </div>
-        </a>
-      </p>
+      <a href={DOCS_URL}>
+        <div
+          className={clsx(
+            "text-stone-200",
+            "italic leading-none decoration-from-font underline-offset-8",
+            "opacity-60 hover:opacity-80",
+          )}
+        >
+          Get Started <span>&rarr;</span>
+        </div>
+      </a>
     </div>
   );
 };
