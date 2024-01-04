@@ -51,8 +51,4 @@ fn render(self, _view: &mut V, cx: &mut ViewContext<V>) -> impl Component<V> {
 
 For those familiar with Tailwind CSS, the syntax of laying out elements should already be pretty comfortable.
 
-See [Layout in GPUI ->](/) for more.
-
-## Contributing to GPUI
-
-GPUI is an open source project, while we welcome contributions, it is currently tied to [Zed](/) so contributions will need to be made there and kept in sync with it.`;
+See [Layout in GPUI ->](/) for more.`;

@@ -11,7 +11,7 @@ export default async function Home() {
       <main className="grid min-h-screen grid-cols-12 gap-20">
         <div className="col-span-8 flex flex-col gap-4">
           <Hero />
-          <div className="col-span-8 flex flex-col gap-4 pb-96">
+          <div className="col-span-8 flex flex-col gap-4">
             <div
               className={clsx(
                 "prose prose-invert",
