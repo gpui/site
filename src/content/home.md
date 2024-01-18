@@ -1,54 +1,40 @@
+## GPUI
+
+A fast, productive UI framework from the creators of [Zed](https://zed.dev).
+
 ## Hello, World 🌎
 
 ```rust
-use gpui::{}
+use gpui::*;
 
 struct HelloWorld {
-    text: String,
+    text: SharedString,
 }
 
 impl Render for HelloWorld {
-    type Element = Div;
-
-    fn render(&mut self) -> Self::Element {
+    fn render(&mut self, _cx: &mut ViewContext<Self>) -> impl IntoElement {
         div()
-        .flex()
-        .size_full()
-        .justify_center()
-        .items_center()
-        .text_color(hsla(1.0, 1.0, 1.0, 1.0))
-        .child(self.text)
+            .flex()
+            .bg(rgb(0x2e7d32))
+            .size_full()
+            .justify_center()
+            .items_center()
+            .text_xl()
+            .text_color(rgb(0xffffff))
+            .child(format!("Hello, {}!", &self.text))
     }
 }
-```
 
-## A quick example
-
-Create beautiful user interfaces in Rust faster than ever.
-
-```rust
-fn render(self, _view: &mut V, cx: &mut ViewContext<V>) -> impl Component<V> {
-    let theme = theme(cx);
-
-    div()
-        .w_96()
-        .bg("#EFEFEF")
-        .border()
-        .border_color("#CCCCCC")
-        .shadow_2xl()
-        .child(
-            h_stack()
-                .justify_between()
-                .p_1()
-                .border_b()
-                .border_color(theme.border)
-                .child(div().children(self.title.clone().map(|t| Label::new(t))))
-                .child(IconButton::new("close", Icon::Close)),
-        )
-        .child(v_stack().p_1().children(self.children))
+fn main() {
+    App::new().run(|cx: &mut AppContext| {
+        cx.open_window(WindowOptions::default(), |cx| {
+            cx.new_view(|_cx| HelloWorld {
+                text: "World".into(),
+            })
+        });
+    });
 }
 ```
 
-For those familiar with Tailwind CSS, the syntax of laying out elements should already be pretty comfortable.
-
-See [Layout in GPUI ->](/) for more.
+Today, it's Zed's UI framework. Tomorrow, it's yours!
+We'd love your help making that happen.
