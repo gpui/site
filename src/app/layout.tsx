@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { GeistSans, GeistMono } from "geist/font";
-import "./globals.css";
 import clsx from "clsx";
+import { GeistMono } from "geist/font/mono";
+import type { Metadata } from "next";
+import "./globals.css";
 import { Nav } from "./nav";
 
 export const metadata: Metadata = {
