@@ -1,7 +1,9 @@
+import Contributing from "@/content/sidebar/contributing.md";
+import MadePossibleBy from "@/content/sidebar/made-possible-by.md";
 import { get_contributors } from "@/lib/contributor";
-import Link from "next/link";
 import Image from "next/image";
-import { Markdown } from "./md";
+import Link from "next/link";
+import { MarkdownContainer } from "./md";
 
 export const Sidebar = async () => {
   const contributors = await get_contributors();
@@ -9,7 +11,9 @@ export const Sidebar = async () => {
   return (
     <div className="col-span-3 flex flex-col gap-16">
       <div className="flex flex-col gap-6">
-        <Markdown>{`## GPUI is made possible by`}</Markdown>
+        <MarkdownContainer>
+          <MadePossibleBy />
+        </MarkdownContainer>
         <div className="flex flex-wrap gap-3">
           {contributors.map((contributor) => (
             <Link
@@ -33,14 +37,9 @@ export const Sidebar = async () => {
         </Link>
       </div>
       <div className="flex flex-col gap-4">
-        <Markdown>
-          {`
-## Contributing to GPUI
-GPUI is an open source project. We welcome
-contributions, but for the near future GPUI is tied to [Zed](https://zed.dev/), so contributions will
-need to be made there and kept in sync with it.
-        `}
-        </Markdown>
+        <MarkdownContainer>
+          <Contributing />
+        </MarkdownContainer>
       </div>
     </div>
   );
