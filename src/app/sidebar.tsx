@@ -3,7 +3,7 @@ import MadePossibleBy from "@/content/sidebar/made-possible-by.md";
 import { get_contributors } from "@/lib/contributor";
 import Image from "next/image";
 import Link from "next/link";
-import { MarkdownContainer } from "./md";
+import { Markdown } from "./md";
 
 export const Sidebar = async () => {
   const contributors = await get_contributors();
@@ -11,9 +11,9 @@ export const Sidebar = async () => {
   return (
     <div className="col-span-3 flex flex-col gap-16">
       <div className="flex flex-col gap-6">
-        <MarkdownContainer>
+        <Markdown>
           <MadePossibleBy />
-        </MarkdownContainer>
+        </Markdown>
         <div className="flex flex-wrap gap-3">
           {contributors.map((contributor) => (
             <Link
@@ -37,9 +37,9 @@ export const Sidebar = async () => {
         </Link>
       </div>
       <div className="flex flex-col gap-4">
-        <MarkdownContainer>
+        <Markdown>
           <Contributing />
-        </MarkdownContainer>
+        </Markdown>
       </div>
     </div>
   );

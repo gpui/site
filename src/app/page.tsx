@@ -2,7 +2,7 @@ import Home from "@/content/home.md";
 import clsx from "clsx";
 import { Suspense } from "react";
 import { Hero } from "./hero";
-import { MarkdownContainer } from "./md";
+import { Markdown } from "./md";
 import { Sidebar } from "./sidebar";
 
 export default async function HomePage() {
@@ -24,9 +24,9 @@ export default async function HomePage() {
                 "prose-a:underline prose-a:underline-offset-4 prose-a:decoration-from-font",
               )}
             >
-              <MarkdownContainer>
+              <Markdown>
                 <Home />
-              </MarkdownContainer>
+              </Markdown>
             </div>
           </div>
         </div>
