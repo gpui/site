@@ -1,6 +1,6 @@
-export const home = `## Hello, World 🌎
+## Hello, World 🌎
 
-~~~rust
+```rust
 use gpui::{}
 
 struct HelloWorld {
@@ -20,13 +20,13 @@ impl Render for HelloWorld {
         .child(self.text)
     }
 }
-~~~
+```
 
 ## A quick example
 
 Create beautiful user interfaces in Rust faster than ever.
 
-~~~rust
+```rust
 fn render(self, _view: &mut V, cx: &mut ViewContext<V>) -> impl Component<V> {
     let theme = theme(cx);
 
@@ -47,8 +47,8 @@ fn render(self, _view: &mut V, cx: &mut ViewContext<V>) -> impl Component<V> {
         )
         .child(v_stack().p_1().children(self.children))
 }
-~~~
+```
 
 For those familiar with Tailwind CSS, the syntax of laying out elements should already be pretty comfortable.
 
-See [Layout in GPUI ->](/) for more.`;
+See [Layout in GPUI ->](/) for more.

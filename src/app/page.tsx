@@ -1,11 +1,11 @@
+import Home from "@/content/home.md";
 import clsx from "clsx";
-import { home } from "../content/home";
-import { Markdown } from "./md";
-import { Hero } from "./hero";
-import { Sidebar } from "./sidebar";
 import { Suspense } from "react";
+import { Hero } from "./hero";
+import { MarkdownContainer } from "./md";
+import { Sidebar } from "./sidebar";
 
-export default async function Home() {
+export default async function HomePage() {
   return (
     <div className="flex justify-between p-4">
       <main className="grid min-h-screen grid-cols-12 gap-20">
@@ -24,7 +24,9 @@ export default async function Home() {
                 "prose-a:underline prose-a:underline-offset-4 prose-a:decoration-from-font",
               )}
             >
-              <Markdown>{home}</Markdown>
+              <MarkdownContainer>
+                <Home />
+              </MarkdownContainer>
             </div>
           </div>
         </div>

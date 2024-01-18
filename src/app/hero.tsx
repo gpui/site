@@ -1,4 +1,4 @@
-import { DOCS_URL } from "@/content/const";
+import { DOCS_URL } from "@/lib/docs";
 import clsx from "clsx";
 import Link from "next/link";
 
