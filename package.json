@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "fmt": "prettier --write '**/*.+(js|json|md|ts|tsx|css)'",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -33,6 +34,7 @@
     "autoprefixer": "^10.4.16",
     "eslint": "^8.56.0",
     "postcss": "^8.4.33",
+    "prettier": "^3.2.4",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3"
   }
