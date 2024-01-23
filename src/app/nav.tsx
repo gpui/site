@@ -39,7 +39,7 @@ export const Nav = () => {
       <div className="flex items-center gap-8">
         <NavItem href="/" title="gpui" />
         <NavItem href={DOCS_URL} title="docs" external />
-        <NavItem href="https://github.com/gpui" title="github" external />
+        <NavItem href="https://github.com/zed-industries/zed/tree/main/crates/gpui" title="github" external />
       </div>
       <div className="flex items-center gap-12">
         <NavItem href="https://zed.dev" title="zed" external />
