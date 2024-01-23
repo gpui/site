@@ -1,4 +1,3 @@
-import { DOCS_URL } from "@/lib/docs";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -17,7 +16,7 @@ export const Hero = () => {
         <Link href="https://github.com/atom/atom">Atom</Link>
         <p className="opacity-80">.</p>
       </h2>
-      <a href={DOCS_URL}>
+      <a href="https://github.com/zed-industries/zed/tree/main/crates/gpui">
         <div
           className={clsx(
             "text-stone-200",

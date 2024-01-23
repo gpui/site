@@ -1,6 +1,5 @@
 "use client";
 
-import { DOCS_URL } from "@/lib/docs";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -38,8 +37,11 @@ export const Nav = () => {
     <nav className="flex justify-between px-4 py-2">
       <div className="flex items-center gap-8">
         <NavItem href="/" title="gpui" />
-        <NavItem href={DOCS_URL} title="docs" external />
-        <NavItem href="https://github.com/zed-industries/zed/tree/main/crates/gpui" title="github" external />
+        <NavItem
+          href="https://github.com/zed-industries/zed/tree/main/crates/gpui"
+          title="github"
+          external
+        />
       </div>
       <div className="flex items-center gap-12">
         <NavItem href="https://zed.dev" title="zed" external />
