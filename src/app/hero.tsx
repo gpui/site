@@ -7,11 +7,7 @@ export const Hero = () => {
       <h1 className={clsx("max-w-2xl text-2xl leading-tight text-stone-200")}>
         GPUI
       </h1>
-      <h2
-        className={clsx(
-          "flex max-w-2xl leading-tight text-stone-200 whitespace-nowrap",
-        )}
-      >
+      <h2 className={clsx("max-w-2xl leading-tight text-stone-200")}>
         A fast, productive UI framework for Rust from the creators of&nbsp;
         <Link className="underline underline-offset-4" href="https://zed.dev">
           Zed
