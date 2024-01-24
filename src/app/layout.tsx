@@ -6,7 +6,8 @@ import { Nav } from "./nav";
 
 export const metadata: Metadata = {
   title: "GPUI",
-  description: "Meet GPUI, the open source, immediate-mode Rust UI framework.",
+  description:
+    "A fast, productive UI framework for Rust from the creators of Zed.",
 };
 
 export default function RootLayout({
