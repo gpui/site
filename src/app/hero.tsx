@@ -12,7 +12,7 @@ export const Hero = () => {
           "flex max-w-2xl leading-tight text-stone-200 whitespace-nowrap",
         )}
       >
-        A fast, productive Rust UI framework from the creators of&nbsp;
+        A fast, productive UI framework for Rust from the creators of&nbsp;
         <Link className="underline underline-offset-4" href="https://zed.dev">
           Zed
         </Link>
