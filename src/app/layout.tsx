@@ -20,10 +20,10 @@ export default function RootLayout({
       <body
         className={clsx(
           GeistMono.className,
-          "relative max-w-[1800px] bg-black text-white",
+          "max-w-screen-sm md:max-w-[1800px] bg-black text-white",
         )}
       >
-        <div className="relative z-20 mx-auto flex min-h-screen flex-col gap-8 p-8">
+        <div className="z-20 mx-auto flex min-h-screen flex-col gap-8 p-2 md:p-8">
           <Nav />
           {children}
         </div>

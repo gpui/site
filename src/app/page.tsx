@@ -8,7 +8,7 @@ import { Sidebar } from "./sidebar";
 export default async function HomePage() {
   return (
     <div className="flex justify-between p-4">
-      <main className="grid min-h-screen grid-cols-12 gap-20">
+      <main className="grid min-h-screen grid-cols-8 md:grid-cols-12 gap-10 md:gap-20">
         <div className="col-span-8 flex flex-col gap-4">
           <Hero />
           <div className="col-span-8 flex flex-col gap-4">
