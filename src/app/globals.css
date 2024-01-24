@@ -12,6 +12,11 @@
 }
 
 pre > code {
-    @apply text-xs !important;
-    @apply md:text-sm !important;
+  @apply text-xs !important;
+  @apply md:text-sm !important;
+}
+
+pre > code span {
+  /* Suppress italics from syntax highlighting. */
+  font-style: normal !important;
 }
