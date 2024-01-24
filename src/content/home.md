@@ -1,7 +1,3 @@
-## GPUI
-
-A fast, productive UI framework from the creators of [Zed](https://zed.dev).
-
 ## Hello, World 🌎
 
 ```rust

@@ -10,7 +10,3 @@
     overscroll-behavior: none;
   }
 }
-
-.hljs > code {
-  text-shadow: none !important;
-}

@@ -1,5 +1,5 @@
 import createMdx from "@next/mdx";
-import rehypeHighlight from "rehype-highlight";
+import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 
 /** @type {import('next').NextConfig} */
@@ -17,11 +17,16 @@ const nextConfig = {
   },
 };
 
+/** @type {import('rehype-pretty-code').Options} */
+const rehypePrettyCodeOptions = {
+  theme: "ayu-dark",
+};
+
 const withMdx = createMdx({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [],
-    rehypePlugins: [rehypeSlug, [rehypeHighlight, { prefix: "syntax-" }]],
+    rehypePlugins: [rehypeSlug, [rehypePrettyCode, rehypePrettyCodeOptions]],
   },
 });
 
