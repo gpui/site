@@ -32,7 +32,10 @@ export const Sidebar = async () => {
             </Link>
           ))}
         </div>
-        <Link href="#" className="flex text-sm hover:text-stone-300">
+        <Link
+          href="https://github.com/zed-industries/zed/blob/main/CONTRIBUTING.md"
+          className="flex text-sm hover:text-stone-300"
+        >
           How to contribute &rarr;
         </Link>
       </div>
