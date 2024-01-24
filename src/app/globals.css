@@ -10,3 +10,8 @@
     overscroll-behavior: none;
   }
 }
+
+pre > code {
+    @apply text-xs !important;
+    @apply md:text-sm !important;
+}
