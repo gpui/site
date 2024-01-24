@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html,
-  body {
-    /* This prevents the overscroll behavior when scrolling past the end of the page in browsers like Chrome */
-    /* https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior */
-    overscroll-behavior: none;
-  }
-}
-
 pre > code {
   @apply text-xs !important;
   @apply md:text-sm !important;
