@@ -17,10 +17,10 @@ Additionally, below we've added some community examples and videos that you migh
 
 ## Community Examples
 
-### Projects
+### Examples
 
-- [Loungy](https://github.com/MatthiasGrandl/loungy) - by [Matthias Grandl](https://github.com/MatthiasGrandl)
+- [Loungy](https://github.com/MatthiasGrandl/loungy) - [MatthiasGrandl](https://github.com/MatthiasGrandl)
 
 ### Videos
 
-- [Simple list of items with GPUI ](https://www.youtube.com/watch?v=Js9ioSaJaj8) - ([Source](https://github.com/duanebester/gpui-list))
+- [Simple list of items with GPUI](https://www.youtube.com/watch?v=Js9ioSaJaj8) ([Source](https://github.com/duanebester/gpui-list)) - [duanebester](https://github.com/duanebester)
