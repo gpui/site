@@ -27,7 +27,8 @@ fn main() {
             cx.new_view(|_cx| HelloWorld {
                 text: "World".into(),
             })
-        });
+        })
+        .unwrap();
     });
 }
 ```
