@@ -37,6 +37,7 @@ export const Nav = () => {
     <nav className="flex justify-between px-4 py-2">
       <div className="flex items-center gap-8">
         <NavItem href="/" title="gpui" />
+        <NavItem href="#examples" title="examples" />
         <NavItem
           href="https://github.com/zed-industries/zed/tree/main/crates/gpui"
           title="github"
