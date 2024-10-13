@@ -1,1 +1,1 @@
-## GPUI is made possible by
+## gpui is made possible by

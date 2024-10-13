@@ -5,7 +5,7 @@ export const Hero = () => {
   return (
     <div className="col-span-8 flex flex-col gap-8">
       <h1 className={clsx("max-w-2xl text-2xl leading-tight text-stone-200")}>
-        GPUI
+        gpui
       </h1>
       <h2 className={clsx("max-w-2xl leading-tight text-stone-200")}>
         A fast, productive UI framework for Rust from the creators of&nbsp;
