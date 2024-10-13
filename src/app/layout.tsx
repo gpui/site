@@ -5,7 +5,7 @@ import "./globals.css";
 import { Nav } from "./nav";
 
 export const metadata: Metadata = {
-  title: "GPUI",
+  title: "gpui",
   description:
     "A fast, productive UI framework for Rust from the creators of Zed.",
 };
