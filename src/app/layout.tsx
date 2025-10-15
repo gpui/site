@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className={clsx(
           GeistMono.className,
-          "max-w-screen-sm md:max-w-[1800px] bg-black text-white",
+          "max-w-(--breakpoint-sm) md:max-w-[1800px] bg-black text-white",
         )}
       >
         <div className="z-20 mx-auto flex min-h-screen flex-col gap-8 p-2 md:p-8">
