@@ -1,0 +1,72 @@
+---
+import ExternalLinkIcon from "./ExternalLinkIcon.astro";
+
+type NavItem = {
+  href: string;
+  title: string;
+  external?: boolean;
+};
+
+const currentPath = Astro.url.pathname;
+
+const leftItems: NavItem[] = [
+  { href: "/", title: "gpui" },
+  { href: "#examples", title: "examples" },
+  {
+    href: "https://github.com/zed-industries/zed/tree/main/crates/gpui",
+    title: "github",
+    external: true,
+  },
+];
+
+const rightItems: NavItem[] = [
+  { href: "https://zed.dev", title: "zed", external: true },
+];
+---
+
+<nav class="flex justify-between px-4 py-2">
+  <div class="flex items-center gap-8">
+    {
+      leftItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "flex items-center gap-2 text-stone-200",
+            currentPath === item.href
+              ? "opacity-100"
+              : "opacity-60 hover:opacity-80",
+          ]}
+        >
+          <span>{item.title}</span>
+          {item.external && (
+            <span class="opacity-70">
+              <ExternalLinkIcon size={12} />
+            </span>
+          )}
+        </a>
+      ))
+    }
+  </div>
+  <div class="flex items-center gap-12">
+    {
+      rightItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "flex items-center gap-2 text-stone-200",
+            currentPath === item.href
+              ? "opacity-100"
+              : "opacity-60 hover:opacity-80",
+          ]}
+        >
+          <span>{item.title}</span>
+          {item.external && (
+            <span class="opacity-70">
+              <ExternalLinkIcon size={12} />
+            </span>
+          )}
+        </a>
+      ))
+    }
+  </div>
+</nav>

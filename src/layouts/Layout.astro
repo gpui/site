@@ -1,0 +1,33 @@
+---
+import Nav from "@/components/Nav.astro";
+import "@/styles/globals.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "gpui",
+  description = "A fast, productive UI framework for Rust from the creators of Zed.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body
+    class="font-mono max-w-(--breakpoint-sm) md:max-w-[1800px] bg-black text-white"
+  >
+    <div class="z-20 mx-auto flex min-h-screen flex-col gap-8 p-2 md:p-8">
+      <Nav />
+      <slot />
+    </div>
+  </body>
+</html>
