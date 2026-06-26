@@ -16,11 +16,6 @@ but the contributors list may be empty).
   GITHUB_PERSONAL_ACCESS_TOKEN=your_token_here
   ```
 
-  Alternatively, if you use Vercel, you can pull the env variables down:
-
-  - Link the project with Vercel: `pnpm dlx vercel link`
-  - Pull down env variables from Vercel: `pnpm dlx vercel env pull`
-
 - Install dependencies: `pnpm install`
 - Run the dev server: `pnpm dev`
 - Build for production: `pnpm build`
