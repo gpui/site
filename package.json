@@ -8,7 +8,8 @@
     "fmt": "prettier --write '**/*.+(js|mjs|json|md|ts|astro|css)'",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "wrangler": "wrangler"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
@@ -23,6 +24,7 @@
     "@types/node": "^20.10.6",
     "prettier": "^3.2.4",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "wrangler": "4.104.0"
   }
 }
