@@ -1,4 +1,17 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -27,5 +40,3 @@ pre > code span {
   /* Suppress italics from syntax highlighting. */
   font-style: normal !important;
 }
-
-@plugin "@tailwindcss/typography";

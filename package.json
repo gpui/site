@@ -2,43 +2,27 @@
   "name": "gpui.rs",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "fmt": "prettier --write '**/*.+(js|json|md|ts|tsx|css)'",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "fmt": "prettier --write '**/*.+(js|mjs|json|md|ts|astro|css)'",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@mdx-js/loader": "^3.0.0",
-    "@mdx-js/react": "^3.0.0",
-    "@next/mdx": "^14.0.4",
-    "@tailwindcss/typography": "^0.5.10",
-    "clsx": "^2.1.0",
-    "eslint-config-next": "^14.0.4",
-    "geist": "^1.2.0",
-    "lucide-react": "^0.304.0",
-    "next": "14.0.1",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.14",
+    "astro": "^5.6.1",
     "octokit": "^3.1.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rehype-highlight": "^7.0.0",
     "rehype-pretty-code": "^0.12.6",
     "rehype-slug": "^6.0.0",
-    "remark-gfm": "^4.0.0",
-    "sharp": "^0.32.6",
-    "shikiji": "^0.10.0"
+    "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.14",
-    "@types/mdx": "^2.0.10",
     "@types/node": "^20.10.6",
-    "@types/react": "^18.2.46",
-    "@types/react-dom": "^18.2.18",
-    "eslint": "^8.56.0",
-    "postcss": "^8.4.33",
     "prettier": "^3.2.4",
-    "tailwindcss": "^4.1.14",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.3.3"
   }
 }

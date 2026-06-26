@@ -1,0 +1,52 @@
+---
+import { get_contributors, type Contributor } from "@/lib/contributor";
+import { Content as Contributing } from "@/markdown/sidebar/contributing.md";
+import { Content as MadePossibleBy } from "@/markdown/sidebar/made-possible-by.md";
+import Markdown from "./Markdown.astro";
+
+let contributors: Contributor[] = [];
+try {
+  contributors = await get_contributors();
+} catch (error) {
+  console.error("Failed to load contributors:", error);
+}
+---
+
+<div class="col-span-8 md:col-span-3 flex flex-col gap-8 md:gap-16">
+  <div class="flex flex-col gap-6">
+    <Markdown>
+      <MadePossibleBy />
+    </Markdown>
+    <div class="flex flex-wrap gap-3">
+      {
+        contributors.map((contributor) => (
+          <a
+            href={contributor.url}
+            title={contributor.handle}
+            class="group flex items-center"
+          >
+            <img
+              src={contributor.avatar}
+              alt={contributor.handle}
+              width="64"
+              height="64"
+              loading="lazy"
+              class="h-8 w-8 rounded-md grayscale group-hover:grayscale-0"
+            />
+          </a>
+        ))
+      }
+    </div>
+    <a
+      href="https://github.com/zed-industries/zed/blob/main/CONTRIBUTING.md"
+      class="flex text-sm hover:text-stone-300"
+    >
+      How to contribute &rarr;
+    </a>
+  </div>
+  <div class="flex flex-col gap-4">
+    <Markdown>
+      <Contributing />
+    </Markdown>
+  </div>
+</div>
