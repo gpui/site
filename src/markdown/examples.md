@@ -1,38 +1,53 @@
-# GPUI examples
+# GPUI basics
 
-Small, focused examples are a good way to learn GPUI's building blocks. These
-guides connect common UI patterns to current examples in the Zed repository.
-The code excerpts are intentionally small; follow the source links for complete,
-runnable applications.
+GPUI is a Rust UI framework that draws its own interface with the GPU, rather than embedding a browser or using platform-native widgets.
+It uses Metal on macOS, DirectX 11 on Windows, and wgpu on Linux; X11 or Wayland handles Linux windowing.
 
-## Start here
+## Views and state
 
-### A reactive counter
+A GPUI app opens a window and gives it a root view.
+A view is a Rust struct managed by GPUI that implements `Render`; its `render` method builds the UI as a tree of elements.
+If you know React, or React-like UI frameworks, the view-and-state model may feel familiar.
 
-A GPUI view stores state in a Rust struct. An event handler changes that state
-and calls `notify` so GPUI knows to render the view again.
+In the example below, the view displays its count and increments it when clicked:
 
 ```rust
-fn increment(&mut self, _: &ClickEvent, _: &mut Window, cx: &mut Context<Self>) {
-    self.count += 1;
-    cx.notify();
+impl Render for Counter {
+    fn render(&mut self, _window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+        div()
+            .child(format!("Count: {}", self.count))
+            .child(
+                div()
+                    .on_click(cx.listener(|this, _, _, cx| {
+                        this.count += 1;
+                        cx.notify();
+                    }))
+                    .child("Add"),
+            )
+    }
 }
 ```
 
-This is a useful first exercise: add a decrement action, prevent the count from
-going below zero, then add keyboard actions. GPUI's
-[testing example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/testing.rs)
-shows a fuller counter with actions, focus, and rendering.
+The handler mutates the view's state, then calls `cx.notify()` to request a new render; changing a field alone does not do that.
+Visit the full [counter and testing example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/testing.rs) to see the complete app, including keyboard interactions and tests.
 
 ## Layout and styling
 
-### GPUI patterns alongside CSS
-
-GPUI's styling API will feel familiar if you know CSS and utility-class systems:
-you compose layout and visual properties on elements. The syntax is Rust method
-calls, though—not CSS declarations or a browser DOM.
+If you're familiar with Tailwind, gpui's styling API will feel close to home.
+The syntax is Rust method calls that look similar to how you'd compose CSS utility-classes on HTML elements.
 
 For example, these express a centered column with a gap:
+
+```rust
+div()
+    .flex()
+    .flex_col()
+    .gap_3()
+    .justify_center()
+    .items_center()
+```
+
+Equivalent to:
 
 ```css
 .stack {
@@ -44,19 +59,11 @@ For example, these express a centered column with a gap:
 }
 ```
 
-```rust
-div()
-    .flex()
-    .flex_col()
-    .gap_3()
-    .justify_center()
-    .items_center()
-```
+The method names are analogous, but the available properties and behavior are defined by GPUI.
+There isn't total CSS compatibility yet; gpui implements the features needed primarily to build either Zed or Delta, plus others driven by the community.
+However, there are enough supported CSS-like features to unlock styling a real-world application like you would on the web.
 
-The method names are analogous, but the available properties and behavior are
-defined by GPUI. This is not full CSS compatibility: GPUI has its own APIs,
-rendering model, and supported layout features. For example, it provides grid
-layout through methods such as `grid`, `grid_cols`, and `col_span`:
+For example, gpui provides grid layout:
 
 ```rust
 div()
@@ -67,107 +74,59 @@ div()
     .child(content.col_span(3))
 ```
 
-The [grid layout example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/grid_layout.rs)
-uses a five-column grid for a wide layout and switches to a stacked flex layout
-when its container becomes narrow. That switch is written with GPUI's
-`container_query`; don't assume browser CSS features or syntax transfer
-one-to-one.
+This [grid layout example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/grid_layout.rs) uses a five-column grid for a wide layout and switches to a stacked flex layout when its container becomes narrow.
+That switch is written with gpui's `container_query`, which is naturally inspired by the CSS counterpart.
 
-### A searchable project dashboard
+## Events and application logic
 
-A project dashboard is a practical next step after the counter: display projects
-in a scrollable list, let a text field filter the rows, and make each row open
-or reveal project details. It brings together input, state, event handling, and
-list rendering without requiring a large application.
+Mouse handlers run Rust code directly, and keyboard shortcuts use GPUI actions.
+There is no browser-to-Rust RPC boundary: a handler can call your application's Rust code.
 
-Start with GPUI's
-[input example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/input.rs)
-and
-[uniform list example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/uniform_list.rs).
-For large datasets, prefer the uniform list pattern rather than rendering every
-row at once.
-
-## Desktop app patterns
-
-### A file-organizer utility
-
-Build a small interface for rules such as “move screenshots with this prefix
-into this folder.” Keep file inspection and moving in ordinary Rust application
-logic; use GPUI to edit rules, show progress, and report errors. This illustrates
-one of GPUI's strengths for desktop tools: UI events can call Rust code in the
-same application, without requiring a browser-to-backend RPC layer.
-
-Treat file operations as real application work: show failures to the user and
-avoid doing slow disk scans on the UI thread. The GPUI examples repository has
-building blocks for
-[input](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/input.rs),
-[lists](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/uniform_list.rs),
-and
-[notifications](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/system_notifications.rs).
-
-### A command palette or settings window
-
-A command palette or compact settings window is a good example of using GPUI
-for one focused piece of a desktop app. It can combine keyboard focus,
-searchable commands, and settings controls without requiring the example to
-grow into a full application.
-
-Explore GPUI's
-[focus and keyboard examples](https://github.com/zed-industries/zed/tree/main/crates/gpui/examples)
-and
-[window examples](https://github.com/zed-industries/zed/tree/main/crates/gpui/examples/window.rs)
-when building this pattern. GPUI draws its own interface; it does not
-automatically become the platform's native controls.
-
-### Animate a changing value
-
-GPUI can redraw a view as state changes. In this excerpt, a click starts an
-opacity change and requests another animation frame until the value reaches its
-target:
+A keyboard shortcut uses an action, a handler on the view, and a key binding in app setup:
 
 ```rust
-if self.animating {
-    self.opacity += 0.005;
-    if self.opacity >= 1.0 {
-        self.animating = false;
-        self.opacity = 1.0;
-    } else {
-        window.request_animation_frame();
+actions!(counter, [Increment]);
+
+struct Counter {
+    count: i32,
+}
+
+impl Counter {
+    fn increment(&mut self, _: &Increment, _: &mut Window, cx: &mut Context<Self>) {
+        self.count += 1;
+        cx.notify();
     }
+}
+
+impl Render for Counter {
+    fn render(&mut self, _window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+        div()
+            .key_context("Counter")
+            .on_action(cx.listener(Self::increment))
+    }
+}
+
+fn bind_keys(cx: &mut App) {
+    cx.bind_keys([KeyBinding::new("up", Increment, Some("Counter"))]);
 }
 ```
 
-See the complete
-[opacity example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/opacity.rs)
-and
-[animation example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/animation.rs)
-for the surrounding state and rendering code.
+`key_context` scopes where the binding applies.
+See the [key dispatch guide](https://github.com/zed-industries/zed/blob/main/crates/gpui/docs/key_dispatch.md) for more details.
+Keep slow work, such as disk or network I/O, off the UI thread.
 
-## Accessibility and testing
+## Accessibility
 
-### Expose accessible information
+Similar to the web, you are responsible for making custom controls accessible in gpui.
+gpui uses AccessKit to expose an accessibility tree; see the [accessibility guide](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/_accessibility.rs).
 
-GPUI integrates with AccessKit to expose an accessibility tree. A custom
-interactive element should communicate its role, name, and value, and support
-the relevant accessible actions—not just respond to pointer clicks.
+## Try it out
 
-The
-[accessibility example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/a11y.rs)
-implements a counter with a spin-button role, an accessible label and numeric
-value, and increment/decrement actions. The
-[GPUI accessibility guide](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/_accessibility.rs)
-explains the underlying API.
+gpui gives you the UI framework, not the rest of your app architecture.
+It does not provide a browser DOM or automatically turn its controls into native platform widgets.
 
-### Test behavior through the app
+Try building a project dashboard.
+This gives you a chance to practice displaying projects in a scrollable list, filtering them with a text field, and opening or revealing details for each row.
+It brings together input, state, event handling, and list rendering without requiring a large application.
 
-Use GPUI's test support to exercise interactions and state changes, instead of
-only checking how a screen looks. The
-[testing example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/testing.rs)
-includes a counter and test setup to use as a starting point.
-
-## More examples
-
-The [GPUI examples directory](https://github.com/zed-industries/zed/tree/main/crates/gpui/examples)
-has runnable examples covering input, animation, accessibility, lists, windows,
-images, and more. The API is evolving, so check the current source when adapting
-an example.
+For runnable starting points, see [hello world](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/hello_world.rs), [input](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/input.rs), and the full [GPUI examples directory](https://github.com/zed-industries/zed/tree/main/crates/gpui/examples).

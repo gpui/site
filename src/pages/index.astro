@@ -14,7 +14,9 @@ import Layout from "@/layouts/Layout.astro";
         <Hero />
         <div class="col-span-8 flex flex-col gap-4">
           <div
-            class="prose prose-invert mt-16 max-w-4xl prose-h2:text-lg prose-pre:p-2 prose-pre:-mx-2 prose-pre:backdrop-blur-xl prose-pre:bg-white/10 prose-pre:shadow-inner prose-pre:shadow-black/5 prose-pre:border prose-pre:border-white/10 prose-a:text-blue-400 prose-a:underline prose-a:underline-offset-4 prose-a:decoration-from-font hover:prose-a:text-blue-300"
+            class:list={[
+              "prose prose-invert mt-8 max-w-4xl prose-h2:text-lg prose-pre:p-2 prose-pre:-mx-2 prose-pre:backdrop-blur-xl prose-pre:bg-white/10 prose-pre:shadow-inner prose-pre:shadow-black/5 prose-pre:border prose-pre:border-white/10 prose-a:text-blue-400 prose-a:underline prose-a:underline-offset-4 prose-a:decoration-from-font hover:prose-a:text-blue-300",
+            ]}
           >
             <Home />
           </div>

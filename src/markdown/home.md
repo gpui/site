@@ -1,5 +1,3 @@
-## Hello, World 🌎
-
 ```rust
 use gpui::{
     div, prelude::*, px, rgb, size, App, Application, Bounds, Context, SharedString, Window,
@@ -59,20 +57,16 @@ fn main() {
 }
 ```
 
-Today, it's Zed's UI framework. Tomorrow, it's yours!
-
 ## Docs
 
-|                                                                                                  |                                                        |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
-| [gpui – README](https://github.com/zed-industries/zed/blob/main/crates/gpui/README.md)           | Intro to gpui (gpui's README)                          |
-| [gpui – gpui.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/gpui.rs)        | Core functionality and API of gpui (gpui's crate root) |
-| [Contexts](https://github.com/zed-industries/zed/blob/main/crates/gpui/docs/contexts.md)         | Explanation of different contexts in gpui              |
-| [Key Dispatch](https://github.com/zed-industries/zed/blob/main/crates/gpui/docs/key_dispatch.md) | Details on key event dispatching in gpui               |
+|                                                                                                  |                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| [gpui – README](https://github.com/zed-industries/zed/blob/main/crates/gpui/README.md)           | Intro to gpui (gpui's README)                                                        |
+| [gpui – gpui.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/gpui.rs)        | Core functionality and API of gpui (gpui's crate root)                               |
+| [gpui examples](/examples)                                                                       | Practical gpui patterns, from Rust UI fundamentals to CSS-inspired layouts and more. |
+| [Contexts](https://github.com/zed-industries/zed/blob/main/crates/gpui/docs/contexts.md)         | Explanation of different contexts in gpui                                            |
+| [Key Dispatch](https://github.com/zed-industries/zed/blob/main/crates/gpui/docs/key_dispatch.md) | Details on key event dispatching in gpui                                             |
 
-Further docs & examples can be found throughout [Zed's crates](https://github.com/zed-industries/zed/tree/main/crates), and in Zed's [ui crate](https://github.com/zed-industries/zed/tree/main/crates/ui/src).
+---
 
-## Examples
-
-Explore practical GPUI patterns, from Rust UI fundamentals to CSS-inspired
-layout and small desktop utilities, on the [examples page](/examples).
+More docs & examples can be found throughout [Zed's crates](https://github.com/zed-industries/zed/tree/main/crates), and in Zed's [UI crate](https://github.com/zed-industries/zed/tree/main/crates/ui/src).

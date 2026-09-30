@@ -4,6 +4,12 @@ import { Content as Contributing } from "@/markdown/sidebar/contributing.md";
 import { Content as MadePossibleBy } from "@/markdown/sidebar/made-possible-by.md";
 import Markdown from "./Markdown.astro";
 
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
 let contributors: Contributor[] = [];
 try {
   contributors = await get_contributors();
@@ -13,7 +19,10 @@ try {
 ---
 
 <div
-  class="col-span-8 flex flex-col gap-8 md:sticky md:top-8 md:col-span-3 md:self-start md:gap-16"
+  class:list={[
+    "col-span-8 flex flex-col gap-8 md:sticky md:top-8 md:col-span-3 md:self-start",
+    className,
+  ]}
 >
   <div class="flex flex-col gap-6">
     <Markdown>
@@ -33,18 +42,12 @@ try {
               width="64"
               height="64"
               loading="lazy"
-              class="h-8 w-8 rounded-md grayscale group-hover:grayscale-0"
+              class="size-8 rounded-sm grayscale group-hover:grayscale-0"
             />
           </a>
         ))
       }
     </div>
-    <a
-      href="https://github.com/zed-industries/zed/blob/main/CONTRIBUTING.md"
-      class="site-link flex text-sm"
-    >
-      How to contribute &rarr;
-    </a>
   </div>
   <div class="flex flex-col gap-4">
     <Markdown>
