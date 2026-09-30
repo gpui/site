@@ -33,7 +33,7 @@ Visit the full [counter and testing example](https://github.com/zed-industries/z
 
 ## Layout and styling
 
-If you're familiar with Tailwind, gpui's styling API will feel close to home.
+If you're familiar with Tailwind, GPUI's styling API will feel close to home.
 The syntax is Rust method calls that look similar to how you'd compose CSS utility-classes on HTML elements.
 
 For example, these express a centered column with a gap:
@@ -60,10 +60,10 @@ Equivalent to:
 ```
 
 The method names are analogous, but the available properties and behavior are defined by GPUI.
-There isn't total CSS compatibility yet; gpui implements the features needed primarily to build either Zed or Delta, plus others driven by the community.
+There isn't total CSS compatibility yet; GPUI implements the features needed primarily to build either Zed or Delta, plus others driven by the community.
 However, there are enough supported CSS-like features to unlock styling a real-world application like you would on the web.
 
-For example, gpui provides grid layout:
+For example, GPUI provides grid layout:
 
 ```rust
 div()
@@ -75,7 +75,7 @@ div()
 ```
 
 This [grid layout example](https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/grid_layout.rs) uses a five-column grid for a wide layout and switches to a stacked flex layout when its container becomes narrow.
-That switch is written with gpui's `container_query`, which is naturally inspired by the CSS counterpart.
+That switch is written with GPUI's `container_query`, which is naturally inspired by the CSS counterpart.
 
 ## Events and application logic
 
@@ -117,12 +117,12 @@ Keep slow work, such as disk or network I/O, off the UI thread.
 
 ## Accessibility
 
-Similar to the web, you are responsible for making custom controls accessible in gpui.
-gpui uses AccessKit to expose an accessibility tree; see the [accessibility guide](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/_accessibility.rs).
+Similar to the web, you are responsible for making custom controls accessible in GPUI.
+GPUI uses AccessKit to expose an accessibility tree; see the [accessibility guide](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/_accessibility.rs).
 
 ## Try it out
 
-gpui gives you the UI framework, not the rest of your app architecture.
+GPUI gives you the UI framework, not the rest of your app architecture.
 It does not provide a browser DOM or automatically turn its controls into native platform widgets.
 
 Try building a project dashboard.

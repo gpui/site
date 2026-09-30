@@ -61,11 +61,11 @@ fn main() {
 
 |                                                                                                  |                                                                                      |
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| [gpui – README](https://github.com/zed-industries/zed/blob/main/crates/gpui/README.md)           | Intro to gpui (gpui's README)                                                        |
-| [gpui – gpui.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/gpui.rs)        | Core functionality and API of gpui (gpui's crate root)                               |
-| [gpui examples](/examples)                                                                       | Practical gpui patterns, from Rust UI fundamentals to CSS-inspired layouts and more. |
-| [Contexts](https://github.com/zed-industries/zed/blob/main/crates/gpui/docs/contexts.md)         | Explanation of different contexts in gpui                                            |
-| [Key Dispatch](https://github.com/zed-industries/zed/blob/main/crates/gpui/docs/key_dispatch.md) | Details on key event dispatching in gpui                                             |
+| [README](https://github.com/zed-industries/zed/blob/main/crates/gpui/README.md)                  | Intro to GPUI (GPUI's README)                                                        |
+| [gpui.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/gpui.rs)               | Core functionality and API of GPUI (GPUI's crate root)                               |
+| [Examples](/examples)                                                                            | Practical GPUI patterns, from Rust UI fundamentals to CSS-inspired layouts and more. |
+| [Contexts](https://github.com/zed-industries/zed/blob/main/crates/gpui/docs/contexts.md)         | Explanation of different contexts in GPUI                                            |
+| [Key Dispatch](https://github.com/zed-industries/zed/blob/main/crates/gpui/docs/key_dispatch.md) | Details on key event dispatching in GPUI                                             |
 
 ---
 
