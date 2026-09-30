@@ -17,13 +17,13 @@ const sections = [
   title="gpui — Examples"
   description="Practical GPUI patterns for Rust UI and desktop apps."
 >
-  <div class="flex justify-between p-4">
+  <div class="p-4">
     <main
-      class="grid min-h-screen grid-cols-1 gap-10 md:grid-cols-12 md:gap-20"
+      class="grid min-h-screen grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 xl:gap-20"
     >
       <nav
         aria-label="Examples on this page"
-        class="col-span-2 flex shrink-0 flex-col gap-3 self-start border-l border-white/15 pl-4 text-sm md:sticky md:top-8 md:w-48"
+        class="col-span-full flex flex-wrap items-center gap-x-4 gap-y-2 self-start border-t border-white/15 pt-3 text-xs lg:sticky lg:top-8 lg:col-span-2 lg:flex-col lg:flex-nowrap lg:items-start lg:gap-3 lg:border-l lg:border-t-0 lg:pl-4 lg:pt-0 lg:text-sm"
       >
         <span class="text-xs text-stone-400">On this page</span>
         {
@@ -37,12 +37,12 @@ const sections = [
           ))
         }
       </nav>
-      <article class="md:col-span-6 max-w-3xl">
+      <article class="col-span-full max-w-3xl lg:col-span-6">
         <Markdown>
           <Examples />
         </Markdown>
       </article>
-      <Sidebar className="!col-span-4" />
+      <Sidebar className="lg:!col-span-4" />
     </main>
   </div>
 </Layout>
