@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title = "gpui",
-  description = "A fast, productive UI framework for Rust from the creators of Zed.",
+  description = "A fast, hybrid immediate and retained mode, GPU-accelerated UI framework for Rust from the creators of Zed and Delta.",
 } = Astro.props;
 ---
 
@@ -19,6 +19,7 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
