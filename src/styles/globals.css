@@ -31,6 +31,25 @@
   }
 }
 
+@layer components {
+  .site-link {
+    color: var(--color-blue-400);
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 4px;
+  }
+
+  .site-link:hover {
+    color: var(--color-blue-300);
+  }
+
+  .prose p,
+  .prose li,
+  .prose em {
+    color: var(--color-stone-400);
+  }
+}
+
 pre > code {
   @apply text-xs!;
   @apply md:text-sm!;

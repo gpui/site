@@ -1,0 +1,51 @@
+---
+import Sidebar from "@/components/Sidebar.astro";
+import { Content as Examples } from "@/markdown/examples.md";
+import Layout from "@/layouts/Layout.astro";
+
+const sections = [
+  { href: "#start-here", label: "Start here" },
+  { href: "#layout-and-styling", label: "Layout and styling" },
+  { href: "#desktop-app-patterns", label: "Desktop app patterns" },
+  { href: "#accessibility-and-testing", label: "Accessibility and testing" },
+  { href: "#more-examples", label: "More examples" },
+];
+---
+
+<Layout
+  title="GPUI — Examples"
+  description="Practical GPUI patterns for Rust UI and desktop apps."
+>
+  <div class="flex justify-between p-4">
+    <main
+      class="grid min-h-screen grid-cols-8 gap-10 md:grid-cols-12 md:gap-20"
+    >
+      <div class="col-span-8 flex flex-col gap-4">
+        <div class="flex flex-col gap-4 md:flex-row md:items-start">
+          <nav
+            aria-label="Examples on this page"
+            class="order-1 flex shrink-0 flex-col gap-3 self-start border-l border-white/15 pl-4 text-sm md:sticky md:top-8 md:w-48"
+          >
+            <span class="mb-1 text-stone-400">On this page</span>
+            {
+              sections.map((section) => (
+                <a
+                  href={section.href}
+                  class="site-link opacity-80 transition-opacity hover:opacity-100"
+                >
+                  {section.label}
+                </a>
+              ))
+            }
+          </nav>
+          <article
+            class="prose prose-invert order-2 max-w-4xl prose-h2:text-lg prose-pre:p-2 prose-pre:-mx-2 prose-pre:backdrop-blur-xl prose-pre:bg-white/10 prose-pre:shadow-inner prose-pre:shadow-black/5 prose-pre:border prose-pre:border-white/10 prose-a:text-blue-400 prose-a:underline prose-a:underline-offset-4 prose-a:decoration-from-font hover:prose-a:text-blue-300"
+          >
+            <Examples />
+          </article>
+        </div>
+      </div>
+      <Sidebar />
+    </main>
+  </div>
+</Layout>

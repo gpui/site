@@ -11,7 +11,7 @@ const currentPath = Astro.url.pathname;
 
 const leftItems: NavItem[] = [
   { href: "/", title: "gpui" },
-  { href: "#examples", title: "examples" },
+  { href: "/examples", title: "examples" },
   {
     href: "https://github.com/zed-industries/zed/tree/main/crates/gpui",
     title: "github",
@@ -20,6 +20,7 @@ const leftItems: NavItem[] = [
 ];
 
 const rightItems: NavItem[] = [
+  { href: "https://delta.dev", title: "delta", external: true },
   { href: "https://zed.dev", title: "zed", external: true },
 ];
 ---
@@ -31,7 +32,7 @@ const rightItems: NavItem[] = [
         <a
           href={item.href}
           class:list={[
-            "flex items-center gap-2 text-stone-200",
+            "flex items-center gap-2 text-stone-200 underline underline-offset-4 decoration-from-font",
             currentPath === item.href
               ? "opacity-100"
               : "opacity-60 hover:opacity-80",
@@ -53,7 +54,7 @@ const rightItems: NavItem[] = [
         <a
           href={item.href}
           class:list={[
-            "flex items-center gap-2 text-stone-200",
+            "flex items-center gap-2 text-stone-200 underline underline-offset-4 decoration-from-font",
             currentPath === item.href
               ? "opacity-100"
               : "opacity-60 hover:opacity-80",
